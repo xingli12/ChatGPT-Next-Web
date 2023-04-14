@@ -64,7 +64,7 @@ export function requestOpenaiClient(path: string) {
 export async function requestChat(messages: Message[]) {
   const req: ChatRequest = makeRequestParam(messages, { filterBot: true });
 
-  const res = await requestOpenaiClient("v1/completions")(req);
+  const res = await requestOpenaiClient("v1/chat/completions")(req);
 
   try {
     const response = (await res.json()) as ChatResponse;
